@@ -8,7 +8,7 @@ class FormContainer extends Component {
   }
   render() {
     return (
-      <form id="form">
+      <form id="form" onSubmit={this.props.getResults}>
         <General />
         <br></br>
         <Education />

@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      results: [],
       provName: '',
       provEmail: '',
       provPhone: '',
@@ -17,15 +18,32 @@ class App extends Component {
       provPositionTitle: '',
       provTask: '',
       provWorkDate: '',
+      renderStatus: false,
     };
+    this.getResults = this.getResults.bind(this);
   }
+  getResults = (e) => {
+    e.preventDefault();
+    console.log('test');
+    const inputs = document.getElementById('form').elements;
+    //console.log(inputs[0].value);
+    this.setState({
+      results: inputs,
+      renderStatus: true,
+    });
+  };
   render() {
-    return (
-      <div className="app">
-        <FormContainer />
-        <Results />
-      </div>
-    );
+    if (this.state.renderStatus) {
+      return (
+        <div className="app">
+          <FormContainer getResults={this.getResults} />
+
+          <Results results={this.state.results} />
+        </div>
+      );
+    } else {
+      return <FormContainer getResults={this.getResults} />;
+    }
   }
 }
 
