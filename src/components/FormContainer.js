@@ -9,13 +9,15 @@ class FormContainer extends Component {
   render() {
     return (
       <form id="form" onSubmit={this.props.handleSubmit}>
-        <General handleChange={this.props.handleChange} />
-        <br></br>
-        <Education handleChange={this.props.handleChange} />
-        <br></br>
-        <Experience handleChange={this.props.handleChange} />
-        <br></br>
-        <button type="submit">submit!</button>
+        <fieldset id="fieldset" disabled={this.props.disabledStatus}>
+          <General handleChange={this.props.handleChange} />
+          <br></br>
+          <Education handleChange={this.props.handleChange} />
+          <br></br>
+          <Experience handleChange={this.props.handleChange} />
+          <br></br>
+          <button type="submit">submit!</button>
+        </fieldset>
       </form>
     );
   }

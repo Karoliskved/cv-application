@@ -21,7 +21,7 @@ class Results extends Component {
     } = this.props.results;
     //console.log(this.props.results.name);
     return (
-      <div>
+      <div id="results" hidden>
         <div>Name</div>
         <div id="provName">{name}</div>
         <div>Email</div>
