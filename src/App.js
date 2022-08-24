@@ -20,18 +20,20 @@ class App extends Component {
       tasks: '',
       jobStartDate: '',
       jobEndDate: '',
+
       renderStatus: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
   handleChange = (e) => {
     const key = e.target.name;
-    console.log('test1');
+    /*console.log('test1');
     console.log(e.target.value);
     console.log(typeof e.target.name);
     console.log(typeof key);
-    console.log(this.state[key]);
+    console.log(this.state[key]);*/
     this.setState({
       [key]: e.target.value,
     });
@@ -39,9 +41,20 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     //console.log(inputs[0].value);
+
     this.setState({
       renderStatus: true,
     });
+  };
+  handleEdit = () => {
+    console.log('test');
+    const values = document.querySelector('#form');
+    console.log(values.name.value);
+    for (const property in this.state) {
+      //console.log(property);
+      if (property != 'renderStatus')
+        values[property].value = this.state[property];
+    }
   };
   render() {
     if (this.state.renderStatus) {
@@ -52,7 +65,7 @@ class App extends Component {
             handleChange={this.handleChange}
           />
 
-          <Results results={this.state} />
+          <Results results={this.state} handleEdit={this.handleEdit} />
         </div>
       );
     } else {

@@ -46,6 +46,7 @@ class Results extends Component {
         <div id="provWorkDate">
           {jobStartDate}-{jobEndDate}
         </div>
+        <button onClick={this.props.handleEdit}>edit!</button>
       </div>
     );
   }
