@@ -7,28 +7,39 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: [],
-      provName: '',
-      provEmail: '',
-      provPhone: '',
-      provSchoolName: '',
-      provTitleOfStudy: '',
-      provStudyDate: '',
-      provCompanyName: '',
-      provPositionTitle: '',
-      provTask: '',
-      provWorkDate: '',
+      // results: [],
+      name: '',
+      email: '',
+      phone: '',
+      schoolName: '',
+      titleOfStudy: '',
+      startDate: '',
+      endDate: '',
+      companyName: '',
+      position: '',
+      tasks: '',
+      jobStartDate: '',
+      jobEndDate: '',
       renderStatus: false,
     };
-    this.getResults = this.getResults.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  getResults = (e) => {
+  handleChange = (e) => {
+    const key = e.target.name;
+    console.log('test1');
+    console.log(e.target.value);
+    console.log(typeof e.target.name);
+    console.log(typeof key);
+    console.log(this.state[key]);
+    this.setState({
+      [key]: e.target.value,
+    });
+  };
+  handleSubmit = (e) => {
     e.preventDefault();
-    console.log('test');
-    const inputs = document.getElementById('form').elements;
     //console.log(inputs[0].value);
     this.setState({
-      results: inputs,
       renderStatus: true,
     });
   };
@@ -36,13 +47,21 @@ class App extends Component {
     if (this.state.renderStatus) {
       return (
         <div className="app">
-          <FormContainer getResults={this.getResults} />
+          <FormContainer
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
 
-          <Results results={this.state.results} />
+          <Results results={this.state} />
         </div>
       );
     } else {
-      return <FormContainer getResults={this.getResults} />;
+      return (
+        <FormContainer
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
+      );
     }
   }
 }
