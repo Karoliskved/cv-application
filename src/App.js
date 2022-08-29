@@ -52,35 +52,17 @@ const App = (props) => {
     }));
   };
 
-  /*if (this.state.renderStatus) {
-      return (
-        <div>
-          <FormContainer
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-            disabledStatus={this.state.disabledStatus}
-          />
-          <Results results={this.state} handleEdit={this.handleEdit} />
-        </div>
-      );
-    } else {
-      return (
-        <FormContainer
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          disabledStatus={this.state.disabledStatus}
-        />
-      );
-    }
-  }*/
   return (
     <div>
-      <FormContainer
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
-        disabledStatus={state.disabledStatus}
-      />
-      <Results results={state} handleEdit={handleEdit} />
+      <div className="header">CV-application</div>
+      <div className="main">
+        <FormContainer
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          disabledStatus={state.disabledStatus}
+        />
+        <Results results={state} handleEdit={handleEdit} />
+      </div>
     </div>
   );
 };

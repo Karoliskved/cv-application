@@ -15,30 +15,21 @@ const Results = (props) => {
   } = props.results;
   //console.log(this.props.results.name);
   return (
-    <div id="results" hidden>
-      <div>Name</div>
-      <div id="provName">{name}</div>
-      <div>Email</div>
-      <div id="provEmail">{email}</div>
-      <div>Phone</div>
-      <div id="provPhone">{phone}</div>
-      <div>School name</div>
-      <div id="provSchoolName">{schoolName}</div>
-      <div>title Of Study</div>
-      <div id="provTitleOfStudy">{titleOfStudy}</div>
-      <div>Studied from-to</div>
-      <div id="provStudyDate">
-        {startDate} - {endDate}
+    <div className="results" id="results" hidden>
+      <h3>RESULTS:</h3>
+      <div>Name: {' ' + name}</div>
+      <div>Email: {' ' + email}</div>
+      <div>Phone: {' ' + phone}</div>
+      <div>School name: {' ' + schoolName}</div>
+      <div>title Of Study: {' ' + titleOfStudy} </div>
+      <div>
+        Studied from-to: {' ' + startDate + ' '} -{' ' + endDate}
       </div>
-      <div>Company Name</div>
-      <div id="provCompanyName"> {companyName}</div>
-      <div>Position title</div>
-      <div id="provPositionTitle">{position}</div>
-      <div>main task of job</div>
-      <div id="provTask">{tasks}</div>
-      <div>worked from-to</div>
-      <div id="provWorkDate">
-        {jobStartDate}-{jobEndDate}
+      <div>Company Name: {' ' + companyName}</div>
+      <div>Position title: {' ' + position}</div>
+      <div>main task of job: {' ' + tasks}</div>
+      <div>
+        worked from-to: {' ' + jobStartDate + ' '}-{' ' + jobEndDate}
       </div>
       <button onClick={props.handleEdit}>edit!</button>
     </div>
